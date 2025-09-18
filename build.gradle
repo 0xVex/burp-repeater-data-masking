@@ -1,0 +1,62 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.burp.extensions'
+version = '1.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+// Ensure Java 21+ compatibility for Burp Suite
+tasks.withType(JavaCompile) {
+    // Use system Java (should be 21+)
+    // Users can override with: ./gradlew -Dorg.gradle.java.home=/path/to/java21 build
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Burp Suite API - Update this path to match your Burp Suite installation:
+    //
+    // macOS:   '/Applications/Burp Suite Community Edition.app/Contents/Resources/app/burpsuite_community.jar'
+    // Windows: 'C:\\Program Files\\BurpSuiteCommunity\\app\\burpsuite_community.jar'  
+    // Linux:   '/opt/BurpSuiteCommunity/burpsuite_community.jar'
+    //
+    // OR set via environment variable: BURP_JAR=/path/to/burp.jar
+    //
+    compileOnly files(System.getenv('BURP_JAR') ?: '/Applications/Burp Suite Community Edition.app/Contents/Resources/app/burpsuite_community.jar')
+}
+
+jar {
+    archiveFileName = 'SensitiveDataMasker.jar'
+    
+    manifest {
+        attributes(
+            'Main-Class': 'burp.SensitiveDataMasker',
+            'Built-By': 'Burp Extension Build System',
+            'Implementation-Title': 'Sensitive Data Masker',
+            'Implementation-Version': version,
+            'Implementation-Vendor': 'Open Source Security Community'
+        )
+    }
+}
+
+// Task to clean build directories
+clean {
+    delete 'build', 'dist'
+}
+
+// Custom task for easy building
+task buildExtension {
+    dependsOn jar
+    doLast {
+        println "Extension built successfully: build/libs/SensitiveDataMasker.jar"
+        println "Load this JAR file in Burp Suite Extensions tab"
+    }
+}
