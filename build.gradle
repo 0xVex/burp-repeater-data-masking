@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'com.burp.extensions'
-version = '1.0'
+version = '2.0.0'
 
 java {
     sourceCompatibility = JavaVersion.VERSION_21
@@ -22,13 +22,12 @@ repositories {
 }
 
 dependencies {
-    // Burp Suite API - Update this path to match your Burp Suite installation:
+    // Burp Suite JAR contains the Montoya API - no external dependencies needed
+    // Set BURP_JAR environment variable or update path to your Burp Suite installation
     //
     // macOS:   '/Applications/Burp Suite Community Edition.app/Contents/Resources/app/burpsuite_community.jar'
     // Windows: 'C:\\Program Files\\BurpSuiteCommunity\\app\\burpsuite_community.jar'  
     // Linux:   '/opt/BurpSuiteCommunity/burpsuite_community.jar'
-    //
-    // OR set via environment variable: BURP_JAR=/path/to/burp.jar
     //
     compileOnly files(System.getenv('BURP_JAR') ?: '/Applications/Burp Suite Community Edition.app/Contents/Resources/app/burpsuite_community.jar')
 }
@@ -41,8 +40,9 @@ jar {
             'Main-Class': 'burp.SensitiveDataMasker',
             'Built-By': 'Burp Extension Build System',
             'Implementation-Title': 'Sensitive Data Masker',
-            'Implementation-Version': version,
-            'Implementation-Vendor': 'Open Source Security Community'
+            'Implementation-Version': '2.0.0',
+            'Implementation-Vendor': 'Open Source Security Community',
+            'Burp-Extension-Api': 'Montoya'
         )
     }
 }

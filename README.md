@@ -1,20 +1,21 @@
 # Sensitive Data Masker - Burp Suite Extension
 
-A Burp Suite extension that adds masking capabilities to the Repeater section, allowing you to hide sensitive information like JWT tokens, session cookies, and API keys when taking screenshots or sharing screen content.
+A modern Burp Suite extension (Montoya API) that adds masking capabilities directly to Repeater tabs, allowing you to hide sensitive information like JWT tokens, session cookies, and API keys. Perfect for taking clean screenshots or sharing screen content without exposing sensitive data.
 
 ## Features
 
-- **Toggle Masking**: Easy on/off toggle for masking sensitive data
-- **Selective Masking**: Choose which types of data to mask:
+- **🎯 Integrated Tabs**: Adds "Masked View" tabs directly within Repeater message editors
+- **📋 Real-time Integration**: Works seamlessly with your existing Burp workflow  
+- **🎛️ Selective Masking**: Choose which types of data to mask:
   - JWT Tokens
   - Session Cookies
   - Authorization Headers  
   - API Keys
-  - Custom Regex Patterns
-- **Syntax Highlighting**: Preserves Burp's native HTTP syntax coloring and formatting
-- **Screenshot Safe**: Perfect for presentations, documentation, and screen sharing
-- **Non-destructive**: Original requests/responses remain unchanged
-- **Real-time**: Instant masking/unmasking with toggle
+  - Custom Regex Patterns with templates
+- **📸 Screenshot Safe**: Perfect for presentations, documentation, and screen sharing
+- **⚡ Real-time Processing**: Instant masking with live preview
+- **🔧 Modern Montoya API**: Built with Burp's latest extension API for maximum compatibility
+- **🎨 Professional UI**: Clean interface integrated directly into Burp's message editors
 
 ## 🛠️ Installation
 
@@ -72,24 +73,25 @@ The extension should load successfully and you'll see "Sensitive Data Masker ext
 
 ## 📖 Usage
 
-### In Repeater Tab
+### In Repeater Tabs
 
-1. Open any request in **Repeater**
+1. Open any request in **Repeater** 
 2. You'll see a new **"Masked View"** tab alongside the Raw/Hex tabs
 3. Click on the **Masked View** tab
-4. Use the masking controls:
-   - **Enable Masking**: Toggle to enable/disable masking
-   - **Settings...**: Click to open configuration dialog where you can:
-     - Select which built-in patterns to mask (JWT, cookies, auth headers, API keys)
-     - Enable/disable custom regex patterns
-     - Add your own regex patterns with example templates
+4. Configure masking options:
+   - Click **"Enable Masking"** to activate masking
+   - Click **"Settings..."** to configure which data types to mask:
+     - Built-in patterns: JWT, cookies, auth headers, API keys
+     - Custom regex patterns with example templates
+5. The content automatically displays with sensitive data masked
 
 ### Taking Screenshots
 
-1. Enable masking with the toggle button
-2. Select the data types you want to hide
-3. Take your screenshot or share your screen
-4. Toggle off masking to return to original content
+1. Navigate to the **Masked View** tab in Repeater
+2. Enable masking and configure desired patterns in Settings
+3. **Screenshot the tab content** - sensitive data is now safely masked
+4. Toggle masking off to return to original content
+5. Perfect for documentation, presentations, and sharing
 
 ## What Gets Masked
 
