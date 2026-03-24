@@ -31,14 +31,8 @@ A powerful Burp Suite extension that automatically detects and masks sensitive d
 
 ## Installation
 
-### From BApp Store (Recommended)
-1. Open Burp Suite
-2. Go to `Extender` → `BApp Store`
-3. Search for "Repeater Data Masking"
-4. Click `Install`
-
-### Manual Installation
-1. Download the latest JAR file from the [releases page](releases)
+### From Releases
+1. Download the latest JAR file from the [releases page](../../releases/latest)
 2. Open Burp Suite
 3. Go to `Extensions` → `Installed`
 4. Click `Add`
@@ -157,12 +151,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Issues**: [GitHub Issues](https://github.com/yourusername/burp-repeater-data-masking/issues)
 - **Documentation**: [Wiki](https://github.com/yourusername/burp-repeater-data-masking/wiki)
 - **Email**: support@example.com
-
-## Acknowledgments
-
-- [PortSwigger](https://portswigger.net/) for the Burp Suite platform and Montoya API
-- The Burp Suite extension development community
-- Contributors and beta testers
 
 ---
 
