@@ -2,7 +2,7 @@
 
 A powerful Burp Suite extension that automatically detects and masks sensitive data in HTTP requests and responses, particularly designed for the Repeater tool but also works with Proxy and Intruder.
 
-## 🚀 Features
+## Features
 
 - **Automatic Detection**: Identifies common sensitive data patterns including:
   - API keys and tokens (AWS, GitHub, Slack, etc.)
@@ -29,7 +29,7 @@ A powerful Burp Suite extension that automatically detects and masks sensitive d
   - Also works with Proxy and Intruder
   - Non-intrusive operation
 
-## 📦 Installation
+## Installation
 
 ### From BApp Store (Recommended)
 1. Open Burp Suite
@@ -55,7 +55,7 @@ cd burp-repeater-data-masking
 
 The built JAR file will be available in `build/libs/burp-repeater-data-masking-1.0.0.jar`
 
-## 🛠️ Usage
+## Usage
 
 1. **Enable the Extension**: After installation, the extension will automatically load and be enabled by default.
 
@@ -69,7 +69,7 @@ The built JAR file will be available in `build/libs/burp-repeater-data-masking-1
 
 4. **Use with Repeater**: Send requests through the Repeater tool. Sensitive data will be automatically masked in both requests and responses.
 
-## ⚙️ Configuration Options
+## Configuration Options
 
 ### Built-in Pattern Types
 
@@ -92,14 +92,14 @@ Add your own regex patterns for specific data types. Examples:
 (?i)my-api-key[\s":=]+["']?([a-zA-Z0-9_\\-]{32})["']?
 ```
 
-## 🔒 Security Considerations
+## Security Considerations
 
 - **Privacy First**: All masking happens locally within Burp Suite
 - **No Data Transmission**: Sensitive data is never sent to external servers
 - **Configurable**: You control what gets masked and how
 - **Reversible**: Original data is preserved; masking is for display only
 
-## 📋 Examples
+## Examples
 
 ### Before Masking
 ```json
@@ -121,7 +121,7 @@ Add your own regex patterns for specific data types. Examples:
 }
 ```
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Extension Not Loading
 - Ensure you're using Java 17 or higher
@@ -138,7 +138,7 @@ Add your own regex patterns for specific data types. Examples:
 - Simplify complex custom patterns
 - Use more specific patterns to reduce false positives
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
@@ -148,17 +148,17 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📞 Support
+## Support
 
 - **Issues**: [GitHub Issues](https://github.com/yourusername/burp-repeater-data-masking/issues)
 - **Documentation**: [Wiki](https://github.com/yourusername/burp-repeater-data-masking/wiki)
 - **Email**: support@example.com
 
-## 🏆 Acknowledgments
+## Acknowledgments
 
 - [PortSwigger](https://portswigger.net/) for the Burp Suite platform and Montoya API
 - The Burp Suite extension development community
