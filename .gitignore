@@ -1,0 +1,27 @@
+# Build output
+build/
+dist/
+
+# Java compiled files
+*.class
+
+# Gradle cache (do NOT ignore the wrapper jar/properties)
+.gradle/
+
+# Logs
+*.log
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp
+*.tmp
+*.bak

@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.burp.extension'
+version = '1.0.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'net.portswigger.burp.extensions:montoya-api:2025.8'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+jar {
+    archiveBaseName = 'burp-repeater-data-masking'
+    archiveVersion = version
+    
+    manifest {
+        attributes(
+            'Implementation-Title': 'Burp Repeater Data Masking Extension',
+            'Implementation-Version': version,
+            'Implementation-Vendor': 'Security Tools'
+        )
+    }
+    
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+application {
+    mainClass = 'com.burp.extension.LocalValidationRunner'
+}
