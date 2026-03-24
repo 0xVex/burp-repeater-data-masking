@@ -50,15 +50,16 @@ public class SensitiveDataMasker implements BurpExtension {
     @Override
     public void initialize(MontoyaApi api) {
         this.api = api;
-        
-        // Set extension name
+
         api.extension().setName("Sensitive Data Masker");
-        
-        // Register HTTP editor providers
+
+        api.extension().registerUnloadingHandler(() ->
+            api.logging().logToOutput("Sensitive Data Masker unloaded.")
+        );
+
         api.userInterface().registerHttpRequestEditorProvider(new SensitiveDataMaskerRequestEditorProvider(api));
         api.userInterface().registerHttpResponseEditorProvider(new SensitiveDataMaskerResponseEditorProvider(api));
-        
-        // Log successful initialization
+
         api.logging().logToOutput("Sensitive Data Masker extension loaded successfully!");
         api.logging().logToOutput("This extension adds masking capabilities to Repeater tabs for secure screenshots.");
     }
