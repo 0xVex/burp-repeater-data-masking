@@ -95,25 +95,20 @@ Add your own regex patterns for specific data types. Examples:
 
 ## Examples
 
-### Before Masking
-```json
-{
-  "api_key": "sk-1234567890abcdef1234567890abcdef",
-  "password": "mySecretPassword123",
-  "credit_card": "4111111111111111",
-  "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-}
-```
+### Masked View in Repeater
 
-### After Masking
-```json
-{
-  "api_key": "sk****************************ef",
-  "password": "my****************23",
-  "credit_card": "41**********1111",
-  "jwt": "ey************************************..."
-}
-```
+![Masked View screenshot](docs/masked-view.png)
+
+The Masked View tab renders with Burp's native editor — identical syntax highlighting, colours, and formatting to the built-in Pretty tab.
+
+### What gets masked
+
+| Pattern | Before | After |
+|---|---|---|
+| Authorization header | `Authorization: Bearer eyJhbGci...` | `Authorization: Bearer [MASKED_TOKEN]` |
+| JWT in cookie | `token=eyJhbGci...` | `token=eyJ[MASKED_JWT_TOKEN]` |
+| Session cookie | `sessionid=abc123def456` | `sessionid=[MASKED_COOKIE]` |
+| API key | `api_key=sk-abc123def456abc123` | `api_key=[MASKED_API_KEY]` |
 
 ## Troubleshooting
 
